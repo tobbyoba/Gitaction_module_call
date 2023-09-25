@@ -5,7 +5,7 @@ on: [push]
 env:
   AWS_ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY }}
   AWS_SECRET_ACCESS_KEY: ${{ secrets.SECRET_KEY }}
-
+# our jobs
 jobs:
   terraform:
     runs-on: ubuntu-latest
@@ -25,3 +25,4 @@ jobs:
         run: terraform plan
       - name: apply
         run: terraform apply -auto-approve
+
