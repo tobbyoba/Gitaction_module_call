@@ -8,7 +8,7 @@ module "s3-backed" {
 #terraform
 terraform {
   backend "s3" {
-    bucket = "my-s3testing-bucket"
+    bucket = "bootcamp32-dev-225"
     key    = "action/terraform.tfstate"
     region = "us-east-2"
     encrypt = "true"
