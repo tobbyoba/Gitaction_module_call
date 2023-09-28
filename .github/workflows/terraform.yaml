@@ -10,27 +10,23 @@ jobs:
   terraform:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Set up Terraform
-        uses: hashicorp/setup-terraform@v1
+      - uses: actions/checkout@v3
+      - uses: hashicorp/setup-terraform@v1
         with:
           terraform_version: 1.1.9
-
-      - name: Initialize Terraform
+      - name: Init
         run: |
           eval `ssh-agent -s`
           ssh-add - <<< '${{ secrets.SSH_KEY_GITHUB_ACTIONS }}'
           terraform init
 
-      - name: Validate Terraform
+      - name: Validate
         run: terraform validate
 
-      - name: Plan Terraform
+      - name: Plan
         run: terraform plan
 
-      - name: Apply Terraform
+      - name: Apply 
         run: terraform apply -auto-approve
 
 
