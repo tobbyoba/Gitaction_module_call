@@ -3,3 +3,4 @@
 terraform
 my-key
 my-key.pub
+deploy_*
